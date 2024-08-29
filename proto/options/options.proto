@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package lava.mongo;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/pubgo/protoc-gen-go-mongo/pkg/proto/mongopbv1;mongopbv1";
+
+message Options {
+  bool gen = 1;
+}
+
+message Fields {
+  string msg = 2;
+}
+
+extend google.protobuf.MessageOptions {
+  Fields field = 100003;
+}
+
+extend google.protobuf.FieldOptions {
+  Options opts = 100004;
+}
