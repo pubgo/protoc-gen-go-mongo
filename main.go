@@ -11,11 +11,7 @@ import (
 func main() {
 	flag.Parse()
 
-	bson.DefaultRegistry = structbson.DefaultRegistry
-
-	protogen.Options{
-		ParamFunc: flag.CommandLine.Set,
-	}.Run(func(gen *protogen.Plugin) error {
+	protogen.Options{ParamFunc: flag.CommandLine.Set}.Run(func(gen *protogen.Plugin) error {
 		gen.SupportedFeatures = uint64(pluginpb.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL)
 		for _, f := range gen.Files {
 			if !f.Generate {

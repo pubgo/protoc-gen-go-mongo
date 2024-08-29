@@ -4,31 +4,34 @@ import (
 	"reflect"
 	"time"
 
+	"github.com/pubgo/protoc-gen-go-mongo/pkg/lavamongo"
 	"go.mongodb.org/mongo-driver/bson/bsoncodec"
 	"go.mongodb.org/mongo-driver/bson/bsonrw"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"google.golang.org/protobuf/types/known/timestamppb"
+	"google.golang.org/protobuf/types/known/wrapperspb"
 )
 
 var (
 	// Protobuf wrappers types
-	boolValueType   = reflect.TypeOf(wrappers.BoolValue{})
-	bytesValueType  = reflect.TypeOf(wrappers.BytesValue{})
-	doubleValueType = reflect.TypeOf(wrappers.DoubleValue{})
-	floatValueType  = reflect.TypeOf(wrappers.FloatValue{})
-	int32ValueType  = reflect.TypeOf(wrappers.Int32Value{})
-	int64ValueType  = reflect.TypeOf(wrappers.Int64Value{})
-	stringValueType = reflect.TypeOf(wrappers.StringValue{})
-	uint32ValueType = reflect.TypeOf(wrappers.UInt32Value{})
-	uint64ValueType = reflect.TypeOf(wrappers.UInt64Value{})
+	boolValueType   = reflect.TypeOf(wrapperspb.BoolValue{})
+	bytesValueType  = reflect.TypeOf(wrapperspb.BytesValue{})
+	doubleValueType = reflect.TypeOf(wrapperspb.DoubleValue{})
+	floatValueType  = reflect.TypeOf(wrapperspb.FloatValue{})
+	int32ValueType  = reflect.TypeOf(wrapperspb.Int32Value{})
+	int64ValueType  = reflect.TypeOf(wrapperspb.Int64Value{})
+	stringValueType = reflect.TypeOf(wrapperspb.StringValue{})
+	uint32ValueType = reflect.TypeOf(wrapperspb.UInt32Value{})
+	uint64ValueType = reflect.TypeOf(wrapperspb.UInt64Value{})
 
 	// Protobuf Timestamp type
-	timestampType = reflect.TypeOf(timestamp.Timestamp{})
+	timestampType = reflect.TypeOf(timestamppb.Timestamp{})
 
 	// Time type
 	timeType = reflect.TypeOf(time.Time{})
 
 	// ObjectId type
-	objectIDType          = reflect.TypeOf(pmongo.ObjectId{})
+	objectIDType          = reflect.TypeOf(lavamongo.ObjectId{})
 	objectIDPrimitiveType = reflect.TypeOf(primitive.ObjectID{})
 
 	// Codecs
@@ -67,7 +70,7 @@ type timestampCodec struct {
 
 // EncodeValue encodes Protobuf Timestamp value to BSON value
 func (e *timestampCodec) EncodeValue(ectx bsoncodec.EncodeContext, vw bsonrw.ValueWriter, val reflect.Value) error {
-	v := val.Interface().(timestamp.Timestamp)
+	v := val.Interface().(timestamppb.Timestamp)
 	t, err := ptypes.Timestamp(&v)
 	if err != nil {
 		return err
@@ -135,8 +138,9 @@ func (e *objectIDCodec) DecodeValue(ectx bsoncodec.DecodeContext, vr bsonrw.Valu
 }
 
 // Register registers Google protocol buffers types codecs
-func Register(rb *bsoncodec.RegistryBuilder) *bsoncodec.RegistryBuilder {
-	return rb.RegisterCodec(boolValueType, wrapperValueCodecRef).
+func Register(rb *bsoncodec.Registry) *bsoncodec.Registry {
+	rb.RegisterTypeEncoder()
+	return rb.RegisterTypeMapEntry(boolValueType, wrapperValueCodecRef).
 		RegisterCodec(bytesValueType, wrapperValueCodecRef).
 		RegisterCodec(doubleValueType, wrapperValueCodecRef).
 		RegisterCodec(floatValueType, wrapperValueCodecRef).
