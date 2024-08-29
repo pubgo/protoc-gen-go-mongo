@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package lava.mongo;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/pubgo/protoc-gen-go-mongo/pkg/lavamongo;lavamongo";
+
+message Options {
+  bool gen = 1;
+}
+
+message Fields {
+  string msg = 2;
+}
+
+message ObjectId {
+  string value = 1;
+}

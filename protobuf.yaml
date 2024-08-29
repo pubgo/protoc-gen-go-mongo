@@ -4,6 +4,7 @@ base:
   module: github.com/pubgo/protoc-gen-go-mongo
 root:
   - proto
+  - internal/examples
 includes:
   - proto
 deps:
