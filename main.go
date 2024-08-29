@@ -11,6 +11,8 @@ import (
 func main() {
 	flag.Parse()
 
+	bson.DefaultRegistry = structbson.DefaultRegistry
+
 	protogen.Options{
 		ParamFunc: flag.CommandLine.Set,
 	}.Run(func(gen *protogen.Plugin) error {

@@ -3,8 +3,6 @@ package lavamongo
 import (
 	"bytes"
 )
-import "github.com/golang/protobuf/jsonpb"
-import "github.com/golang/protobuf/ptypes/wrappers"
 
 // MarshalJSONPB marshals ObjectId to JSONPB string
 func (o *ObjectId) MarshalJSONPB(m *jsonpb.Marshaler) ([]byte, error) {

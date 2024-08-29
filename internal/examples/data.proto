@@ -40,3 +40,18 @@ message Data {
 
   google.protobuf.Timestamp timestamp = 20;
 }
+
+message Book {
+  int64 id = 1;
+  string name = 2;
+  string author = 3;
+  string authorEmail = 4;
+  //google.protobuf.Timestamp published = 5;
+  string published = 5;
+  int64 pages = 6;
+  string publisher = 7;
+  bool isAvailable = 8;
+  string category = 9;
+  string bindType = 10;
+  string photoPath = 11;
+}

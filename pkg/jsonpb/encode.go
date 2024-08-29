@@ -16,7 +16,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golang/protobuf/proto"
 	"google.golang.org/protobuf/encoding/protojson"
 	protoV2 "google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
@@ -55,6 +54,7 @@ type Marshaler struct {
 // implement JSONPBUnmarshaler so that the custom format can be parsed.
 //
 // The JSON marshaling must follow the proto to JSON specification:
+//
 //	https://developers.google.com/protocol-buffers/docs/proto3#json
 //
 // Deprecated: Custom types should implement protobuf reflection instead.
