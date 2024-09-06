@@ -8,9 +8,9 @@ import "lavamongo/types.proto";
 option go_package = "github.com/pubgo/protoc-gen-go-mongo/pkg/mongopbv1;mongopbv1";
 
 extend google.protobuf.MessageOptions {
-  Fields field = 100003;
+  Options options = 100003;
 }
 
 extend google.protobuf.FieldOptions {
-  Options opts = 100004;
+  Fields field = 100004;
 }

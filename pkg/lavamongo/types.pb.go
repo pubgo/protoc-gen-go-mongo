@@ -26,7 +26,7 @@ type Options struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Gen bool `protobuf:"varint,1,opt,name=gen,proto3" json:"gen,omitempty"`
+	Enable bool `protobuf:"varint,1,opt,name=enable,proto3" json:"enable,omitempty"`
 }
 
 func (x *Options) Reset() {
@@ -61,9 +61,9 @@ func (*Options) Descriptor() ([]byte, []int) {
 	return file_lavamongo_types_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Options) GetGen() bool {
+func (x *Options) GetEnable() bool {
 	if x != nil {
-		return x.Gen
+		return x.Enable
 	}
 	return false
 }
@@ -73,7 +73,7 @@ type Fields struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+	Query bool `protobuf:"varint,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
 func (x *Fields) Reset() {
@@ -108,11 +108,11 @@ func (*Fields) Descriptor() ([]byte, []int) {
 	return file_lavamongo_types_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *Fields) GetMsg() string {
+func (x *Fields) GetQuery() bool {
 	if x != nil {
-		return x.Msg
+		return x.Query
 	}
-	return ""
+	return false
 }
 
 type ObjectId struct {
@@ -162,6 +162,288 @@ func (x *ObjectId) GetValue() string {
 	return ""
 }
 
+type UUIDValue struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *UUIDValue) Reset() {
+	*x = UUIDValue{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_lavamongo_types_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UUIDValue) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UUIDValue) ProtoMessage() {}
+
+func (x *UUIDValue) ProtoReflect() protoreflect.Message {
+	mi := &file_lavamongo_types_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UUIDValue.ProtoReflect.Descriptor instead.
+func (*UUIDValue) Descriptor() ([]byte, []int) {
+	return file_lavamongo_types_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *UUIDValue) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
+type JSONValue struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *JSONValue) Reset() {
+	*x = JSONValue{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_lavamongo_types_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *JSONValue) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*JSONValue) ProtoMessage() {}
+
+func (x *JSONValue) ProtoReflect() protoreflect.Message {
+	mi := &file_lavamongo_types_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use JSONValue.ProtoReflect.Descriptor instead.
+func (*JSONValue) Descriptor() ([]byte, []int) {
+	return file_lavamongo_types_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *JSONValue) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
+type UUID struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *UUID) Reset() {
+	*x = UUID{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_lavamongo_types_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UUID) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UUID) ProtoMessage() {}
+
+func (x *UUID) ProtoReflect() protoreflect.Message {
+	mi := &file_lavamongo_types_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UUID.ProtoReflect.Descriptor instead.
+func (*UUID) Descriptor() ([]byte, []int) {
+	return file_lavamongo_types_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *UUID) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
+type InetValue struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *InetValue) Reset() {
+	*x = InetValue{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_lavamongo_types_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *InetValue) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InetValue) ProtoMessage() {}
+
+func (x *InetValue) ProtoReflect() protoreflect.Message {
+	mi := &file_lavamongo_types_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InetValue.ProtoReflect.Descriptor instead.
+func (*InetValue) Descriptor() ([]byte, []int) {
+	return file_lavamongo_types_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *InetValue) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
+type TimeOnly struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value uint32 `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *TimeOnly) Reset() {
+	*x = TimeOnly{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_lavamongo_types_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TimeOnly) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TimeOnly) ProtoMessage() {}
+
+func (x *TimeOnly) ProtoReflect() protoreflect.Message {
+	mi := &file_lavamongo_types_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TimeOnly.ProtoReflect.Descriptor instead.
+func (*TimeOnly) Descriptor() ([]byte, []int) {
+	return file_lavamongo_types_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *TimeOnly) GetValue() uint32 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
+type BigInt struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *BigInt) Reset() {
+	*x = BigInt{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_lavamongo_types_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *BigInt) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BigInt) ProtoMessage() {}
+
+func (x *BigInt) ProtoReflect() protoreflect.Message {
+	mi := &file_lavamongo_types_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BigInt.ProtoReflect.Descriptor instead.
+func (*BigInt) Descriptor() ([]byte, []int) {
+	return file_lavamongo_types_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *BigInt) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
 var File_lavamongo_types_proto protoreflect.FileDescriptor
 
 var file_lavamongo_types_proto_rawDesc = []byte{
@@ -169,17 +451,30 @@ var file_lavamongo_types_proto_rawDesc = []byte{
 	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0a, 0x6c, 0x61, 0x76, 0x61, 0x2e, 0x6d, 0x6f,
 	0x6e, 0x67, 0x6f, 0x1a, 0x20, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x62, 0x75, 0x66, 0x2f, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x6f, 0x72, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x1b, 0x0a, 0x07, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73,
-	0x12, 0x10, 0x0a, 0x03, 0x67, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x03, 0x67,
-	0x65, 0x6e, 0x22, 0x1a, 0x0a, 0x06, 0x46, 0x69, 0x65, 0x6c, 0x64, 0x73, 0x12, 0x10, 0x0a, 0x03,
-	0x6d, 0x73, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x22, 0x20,
-	0x0a, 0x08, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x21, 0x0a, 0x07, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73,
+	0x12, 0x16, 0x0a, 0x06, 0x65, 0x6e, 0x61, 0x62, 0x6c, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08,
+	0x52, 0x06, 0x65, 0x6e, 0x61, 0x62, 0x6c, 0x65, 0x22, 0x1e, 0x0a, 0x06, 0x46, 0x69, 0x65, 0x6c,
+	0x64, 0x73, 0x12, 0x14, 0x0a, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x08, 0x52, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x22, 0x20, 0x0a, 0x08, 0x4f, 0x62, 0x6a, 0x65,
+	0x63, 0x74, 0x49, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x21, 0x0a, 0x09, 0x55, 0x55,
+	0x49, 0x44, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x21, 0x0a,
+	0x09, 0x4a, 0x53, 0x4f, 0x4e, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x42, 0x3e, 0x5a, 0x3c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x70,
-	0x75, 0x62, 0x67, 0x6f, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2d, 0x67, 0x65, 0x6e, 0x2d,
-	0x67, 0x6f, 0x2d, 0x6d, 0x6f, 0x6e, 0x67, 0x6f, 0x2f, 0x70, 0x6b, 0x67, 0x2f, 0x6c, 0x61, 0x76,
-	0x61, 0x6d, 0x6f, 0x6e, 0x67, 0x6f, 0x3b, 0x6c, 0x61, 0x76, 0x61, 0x6d, 0x6f, 0x6e, 0x67, 0x6f,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x22, 0x1c, 0x0a, 0x04, 0x55, 0x55, 0x49, 0x44, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x21,
+	0x0a, 0x09, 0x49, 0x6e, 0x65, 0x74, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x20, 0x0a, 0x08, 0x54, 0x69, 0x6d, 0x65, 0x4f, 0x6e, 0x6c, 0x79, 0x12, 0x14, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x1e, 0x0a, 0x06, 0x42, 0x69, 0x67, 0x49, 0x6e, 0x74, 0x12, 0x14, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x42, 0x3e, 0x5a, 0x3c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
+	0x6d, 0x2f, 0x70, 0x75, 0x62, 0x67, 0x6f, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2d, 0x67,
+	0x65, 0x6e, 0x2d, 0x67, 0x6f, 0x2d, 0x6d, 0x6f, 0x6e, 0x67, 0x6f, 0x2f, 0x70, 0x6b, 0x67, 0x2f,
+	0x6c, 0x61, 0x76, 0x61, 0x6d, 0x6f, 0x6e, 0x67, 0x6f, 0x3b, 0x6c, 0x61, 0x76, 0x61, 0x6d, 0x6f,
+	0x6e, 0x67, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -194,11 +489,17 @@ func file_lavamongo_types_proto_rawDescGZIP() []byte {
 	return file_lavamongo_types_proto_rawDescData
 }
 
-var file_lavamongo_types_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_lavamongo_types_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_lavamongo_types_proto_goTypes = []any{
-	(*Options)(nil),  // 0: lava.mongo.Options
-	(*Fields)(nil),   // 1: lava.mongo.Fields
-	(*ObjectId)(nil), // 2: lava.mongo.ObjectId
+	(*Options)(nil),   // 0: lava.mongo.Options
+	(*Fields)(nil),    // 1: lava.mongo.Fields
+	(*ObjectId)(nil),  // 2: lava.mongo.ObjectId
+	(*UUIDValue)(nil), // 3: lava.mongo.UUIDValue
+	(*JSONValue)(nil), // 4: lava.mongo.JSONValue
+	(*UUID)(nil),      // 5: lava.mongo.UUID
+	(*InetValue)(nil), // 6: lava.mongo.InetValue
+	(*TimeOnly)(nil),  // 7: lava.mongo.TimeOnly
+	(*BigInt)(nil),    // 8: lava.mongo.BigInt
 }
 var file_lavamongo_types_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -250,6 +551,78 @@ func file_lavamongo_types_proto_init() {
 				return nil
 			}
 		}
+		file_lavamongo_types_proto_msgTypes[3].Exporter = func(v any, i int) any {
+			switch v := v.(*UUIDValue); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_lavamongo_types_proto_msgTypes[4].Exporter = func(v any, i int) any {
+			switch v := v.(*JSONValue); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_lavamongo_types_proto_msgTypes[5].Exporter = func(v any, i int) any {
+			switch v := v.(*UUID); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_lavamongo_types_proto_msgTypes[6].Exporter = func(v any, i int) any {
+			switch v := v.(*InetValue); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_lavamongo_types_proto_msgTypes[7].Exporter = func(v any, i int) any {
+			switch v := v.(*TimeOnly); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_lavamongo_types_proto_msgTypes[8].Exporter = func(v any, i int) any {
+			switch v := v.(*BigInt); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -257,7 +630,7 @@ func file_lavamongo_types_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_lavamongo_types_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

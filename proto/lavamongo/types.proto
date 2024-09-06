@@ -7,11 +7,11 @@ import "google/protobuf/descriptor.proto";
 option go_package = "github.com/pubgo/protoc-gen-go-mongo/pkg/lavamongo;lavamongo";
 
 message Options {
-  bool gen = 1;
+  bool enable = 1;
 }
 
 message Fields {
-  string msg = 2;
+  bool query = 1;
 }
 
 message ObjectId {

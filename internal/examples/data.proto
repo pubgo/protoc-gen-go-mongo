@@ -4,54 +4,59 @@ package main.example;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+import "lavamongo/options.proto";
 import "lavamongo/types.proto";
 
 option go_package = "github.com/pubgo/protoc-gen-go-mongo/internal/examples;examples";
 
 message Data {
-  lava.mongo.ObjectId id = 1;
+    option (lava.mongo.options).enable = true;
 
-  bool boolValue = 2;
-  google.protobuf.BoolValue boolProtoValue = 3;
+    lava.mongo.ObjectId id = 1 [
+        (lava.mongo.field).query = true
+    ];
 
-  bytes bytesValue = 4;
-  google.protobuf.BytesValue bytesProtoValue = 5;
+    bool boolValue = 2;
+    google.protobuf.BoolValue boolProtoValue = 3;
 
-  double doubleValue = 6;
-  google.protobuf.DoubleValue doubleProtoValue = 7;
+    bytes bytesValue = 4;
+    google.protobuf.BytesValue bytesProtoValue = 5;
 
-  float floatValue = 8;
-  google.protobuf.FloatValue floatProtoValue = 9;
+    double doubleValue = 6;
+    google.protobuf.DoubleValue doubleProtoValue = 7;
 
-  int32 int32Value = 10;
-  google.protobuf.Int32Value int32ProtoValue = 11;
+    float floatValue = 8;
+    google.protobuf.FloatValue floatProtoValue = 9;
 
-  int64 int64Value = 12;
-  google.protobuf.Int64Value int64ProtoValue = 13;
+    int32 int32Value = 10;
+    google.protobuf.Int32Value int32ProtoValue = 11;
 
-  string stringValue = 14;
-  google.protobuf.StringValue stringProtoValue = 15;
+    int64 int64Value = 12;
+    google.protobuf.Int64Value int64ProtoValue = 13;
 
-  uint32 uint32Value = 16;
-  google.protobuf.UInt32Value uint32ProtoValue = 17;
+    string stringValue = 14;
+    google.protobuf.StringValue stringProtoValue = 15;
 
-  uint64 uint64Value = 18;
-  google.protobuf.UInt64Value uint64ProtoValue = 19;
+    uint32 uint32Value = 16;
+    google.protobuf.UInt32Value uint32ProtoValue = 17;
 
-  google.protobuf.Timestamp timestamp = 20;
+    uint64 uint64Value = 18;
+    google.protobuf.UInt64Value uint64ProtoValue = 19;
+
+    google.protobuf.Timestamp timestamp = 20;
 }
 
 message Book {
-  int64 id = 1;
-  string name = 2;
-  string author = 3;
-  string authorEmail = 4;
-  //google.protobuf.Timestamp published = 5;
-  string published = 5;
-  int64 pages = 6;
-  string publisher = 7;
-  bool isAvailable = 8;
-  string category = 9;
-  string bindType = 10;
-  string photoPath = 11;
+    int64 id = 1;
+    string name = 2;
+    string author = 3;
+    string authorEmail = 4;
+    //google.protobuf.Timestamp published = 5;
+    string published = 5;
+    int64 pages = 6;
+    string publisher = 7;
+    bool isAvailable = 8;
+    string category = 9;
+    string bindType = 10;
+    string photoPath = 11;
 }
