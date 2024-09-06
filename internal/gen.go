@@ -62,3 +62,6 @@ func genName(name1, name2 string) map[string]string {
 		"FieldForUpdateSpecified1": name1 + ".$[elem]." + name2,
 	}
 }
+
+// 数组更新运算符 https://www.mongodb.com/zh-cn/docs/manual/reference/operator/update-array/
+// https://blog.csdn.net/qq_38249409/article/details/128937039
