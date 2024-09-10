@@ -6,38 +6,36 @@ import "google/protobuf/descriptor.proto";
 
 option go_package = "github.com/pubgo/protoc-gen-go-mongo/pkg/lavamongo;lavamongo";
 
-message Options {
-  bool enable = 1;
+message Options { bool enable = 1; }
+
+message Fields { bool query = 1; }
+
+enum UpdateOperator {
+  // $, the first match
+  First = 0;
+
+  // $[], all match
+  All = 1;
+  
+  // $[<identifier>]
+  // db.collection.updateMany(
+      // { <query conditions> },
+      // { <update operator>: { "<array>.$[<identifier>]" : value } },
+      // { arrayFilters: [ { <identifier>: <condition> } ] },
+  //)
+  MatchIdentifier = 2;
 }
 
-message Fields {
-  bool query = 1;
-}
+message ObjectId { string value = 1; }
 
-message ObjectId {
-  string value = 1;
-}
+message UUIDValue { string value = 1; }
 
-message UUIDValue {
-  string value = 1;
-}
+message JSONValue { string value = 1; }
 
-message JSONValue {
-  string value = 1;
-}
+message UUID { string value = 1; }
 
-message UUID {
-  string value = 1;
-}
+message InetValue { string value = 1; }
 
-message InetValue {
-  string value = 1;
-}
+message TimeOnly { uint32 value = 1; }
 
-message TimeOnly {
-  uint32 value = 1;
-}
-
-message BigInt {
-  string value = 1;
-}
+message BigInt { string value = 1; }
